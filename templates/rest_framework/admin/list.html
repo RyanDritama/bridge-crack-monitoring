@@ -1,0 +1,31 @@
+{% load rest_framework %}
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr><th>Options</th>{% for column in columns%}<th>{{ column|capfirst }}</th>{% endfor %}<th class="col-xs-1"></th></tr>
+    </thead>
+    <tbody>
+      {% for row in results %}
+        <tr>
+          <td>
+            {% if row.url %}
+            <a class="btn btn-primary" href="{{ row.url }}" role="button">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Option
+            </a>
+            <!-- <a href="{{ row.url }}"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> -->
+            {% else %}
+            <span class="glyphicon glyphicon-chevron-right text-muted" aria-hidden="true"></span>
+            {% endif %}
+          </td>
+          {% for key, value in row|items %}
+            {% if key in columns %}
+              <td {{ value|add_nested_class }} >
+                {{ value|format_value }}
+              </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

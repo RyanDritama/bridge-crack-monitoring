@@ -1,0 +1,7 @@
+{% extends "rest_framework/admin.html" %}
+{% block branding %}
+  <title>{% block title %}Bridge Identity{% endblock title %}</title>
+  <a class='navbar-brand' rel="nofollow" href='{% url 'home' %}'>
+    &larr; Back to Bridge Health Monitor
+  </a>
+{% endblock %}
