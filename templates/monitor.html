@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load plotly_dash %}
+{% block post_body %}{% plotly_message_pipe %}{% endblock %}
+{% block content %}
+    <div class="responsive video ml-3">
+        <iframe src="{{app.base_url}}/django_plotly_dash/app/monitor/" class="embed-responsive-item"></iframe>
+    </div>
+{% endblock content %}
+
