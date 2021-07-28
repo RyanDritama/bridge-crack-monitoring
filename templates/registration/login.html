@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Log In{% endblock title %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login to SCC</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <style>
+       *{
+        font-family: 'Ubuntu', sans-serif;
+       }
+        .mycontainer{
+            background-color: rgb(164, 175, 202);
+            color: black;
+            width: 250px;
+            height: 200px;
+            text-align: center;
+            padding-top: 40px;
+            background-image: url('https://lh3.googleusercontent.com/proxy/fjgEOO7IP9vPcJmWjb_v2LJZ9VwDZzeFl4OghxxX0IldB_Jmd3XF3SqCckrCVDmRi867cd3wywKp1Co9wVRacPTCbvNjyx_nLtoH5WTM5e8');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .wrap{
+            width: 250px;
+            margin: 50px auto;
+            text-align: center;
+            background-color: rgb(164, 175, 202);
+            color: black;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            border-radius: 10px;
+        }
+/* 
+        .wrap2{
+            float: left;
+            margin-top: 50px;
+            margin-left: 100px;
+        }
+
+        .bridge{
+            background-color: white;
+            color: black;
+            width: 600px;
+            height: 375px;
+            background-image: url('https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/8094d90d-74bd-4635-9d6e-a913639a6dd7');
+            background-size: cover;
+            background-position: center;
+        } */
+        
+    </style>
+
+</head>
+
+
+<body>
+    <div class = "wrap">
+        <h2 style = "font-weight: bold">LOGIN PAGE</h2>
+        <div class="container">
+            <form method="post">
+                {% csrf_token %}
+                 {{ form|crispy }}
+                <button class="btn btn-success ml- " type="submit" style= "width: 225px">Log In</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+{% endblock content %}
+
